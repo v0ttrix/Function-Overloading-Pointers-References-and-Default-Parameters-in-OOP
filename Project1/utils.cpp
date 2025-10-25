@@ -2,36 +2,32 @@
  * Utility Functions Implementation
  * Professional C++ implementation demonstrating OOP concepts
  */
-
 #include "utils.h"
 #include <algorithm>
 #include <utility>
-
 /**
  * Returns maximum of two integers
  * @param x First integer
  * @param y Second integer  
- * @return Maximum value
+ * @return 
  */
 int max(int x, int y) {
     return (x > y) ? x : y;
 }
-
 /**
  * Returns maximum of three integers using function overloading
  * @param x First integer
  * @param y Second integer
  * @param z Third integer
- * @return Maximum value
+ * @return 
  */
 int max(int x, int y, int z) {
     return max(max(x, y), z);
 }
-
 /**
  * Returns maximum value in an array
  * @param array Input array of integers
- * @return Maximum value in array
+ * @return 
  */
 int max(const int array[ARRAY_LENGTH]) {
     int maxValue = array[0];
@@ -42,12 +38,11 @@ int max(const int array[ARRAY_LENGTH]) {
     }
     return maxValue;
 }
-
 /**
  * Returns maximum value between two arrays
  * @param arrayOne First array
  * @param arrayTwo Second array
- * @return Maximum value across both arrays
+ * @return 
  */
 int max(const int arrayOne[ARRAY_LENGTH], const int arrayTwo[ARRAY_LENGTH]) {
     int maxOne = arrayOne[0];
@@ -60,7 +55,6 @@ int max(const int arrayOne[ARRAY_LENGTH], const int arrayTwo[ARRAY_LENGTH]) {
     
     return (maxOne > maxTwo) ? maxOne : maxTwo;
 }
-
 /**
  * Swaps two integers using pointers
  * Demonstrates pointer parameter passing and dereferencing
@@ -72,7 +66,6 @@ void swap(int* num1, int* num2) {
         std::swap(*num1, *num2);
     }
 }
-
 /**
  * Swaps two integers using references
  * Demonstrates reference parameter passing (preferred method)
@@ -82,7 +75,6 @@ void swap(int* num1, int* num2) {
 void swap(int& num1, int& num2) {
     std::swap(num1, num2);
 }
-
 /**
  * Swaps two Location structs using pointers
  * @param location1 Pointer to first location
@@ -93,7 +85,6 @@ void swap(Location* location1, Location* location2) {
         std::swap(*location1, *location2);
     }
 }
-
 /**
  * Swaps two Location structs using references
  * @param location1 Reference to first location
@@ -102,7 +93,6 @@ void swap(Location* location1, Location* location2) {
 void swap(Location& location1, Location& location2) {
     std::swap(location1, location2);
 }
-
 /**
  * Multiplies integers with default parameter
  * Demonstrates default parameter usage (z defaults to 1)
@@ -114,7 +104,6 @@ void swap(Location& location1, Location& location2) {
 int multiply(int x, int y, int z) {
     return x * y * z;
 }
-
 /**
  * Multiplies two double values
  * Demonstrates function overloading based on parameter types

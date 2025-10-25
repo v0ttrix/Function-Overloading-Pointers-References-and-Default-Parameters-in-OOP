@@ -13,17 +13,14 @@
  * - Consistent naming conventions
  * - Modular code organization
  */
-
 #include <iostream>
 #include <iomanip>
 #include "utils.h"
-
 using namespace std;
-
 /**
  * Demonstrates function overloading with max functions
  */
-void demonstrateMaxFunctions() {
+void demonstrate
     cout << "=== Function Overloading Demonstration ===\n";
     
     /* Two parameter max */
@@ -40,7 +37,6 @@ void demonstrateMaxFunctions() {
     int arrayTwo[ARRAY_LENGTH] = {8, 70, 16, 15, 41};
     cout << "max(arrayOne, arrayTwo) = " << max(arrayOne, arrayTwo) << "\n\n";
 }
-
 /**
  * Demonstrates pointer vs reference parameter passing
  */
@@ -59,7 +55,6 @@ void demonstrateSwapFunctions() {
     swap(num1, num2);
     cout << "After reference swap:   num1 = " << num1 << ", num2 = " << num2 << "\n\n";
 }
-
 /**
  * Demonstrates struct manipulation with pointers and references
  */
@@ -91,7 +86,6 @@ void demonstrateStructSwap() {
          << ", " << location1.longitude << "), location2 = (" 
          << location2.latitude << ", " << location2.longitude << ")\n\n";
 }
-
 /**
  * Demonstrates default parameters and function overloading by type
  */
@@ -109,7 +103,6 @@ void demonstrateMultiplyFunctions() {
     cout << "with multiply(int, int, int = 1). The compiler cannot\n";
     cout << "distinguish between these two function signatures.\n\n";
 }
-
 /**
  * Main function demonstrating all C++ OOP concepts
  */
@@ -118,7 +111,7 @@ int main() {
     cout << "==============================\n\n";
     
     try {
-        demonstrateMaxFunctions();
+        demonstrate
         demonstrateSwapFunctions();
         demonstrateStructSwap();
         demonstrateMultiplyFunctions();
