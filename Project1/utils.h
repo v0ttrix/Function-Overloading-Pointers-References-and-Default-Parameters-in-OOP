@@ -1,28 +1,54 @@
-#pragma once
+/**
+ * Utility Functions Header
+ * Demonstrates C++ OOP concepts: Function Overloading, Pointers, References, Default Parameters
+ * 
+ * This header showcases professional C++ programming practices including:
+ * - Function overloading with different parameter types and counts
+ * - Pointer and reference parameter passing
+ * - Default parameter values
+ * - Proper struct definitions and usage
+ */
 
-#define ARRAY_LENGTH	5
+#ifndef UTILS_H
+#define UTILS_H
 
-// Struct for representing a geographical location
+/* Constants */
+constexpr int ARRAY_LENGTH = 5;
+
+/**
+ * Location struct representing geographical coordinates
+ * Demonstrates struct usage in C++ with proper member naming
+ */
 struct Location {
-    double latitude, longitude;
+    double latitude;
+    double longitude;
+    
+    /* Default constructor for initialization */
+    Location(double lat = 0.0, double lon = 0.0) : latitude(lat), longitude(lon) {}
 };
 
-// Function declarations for Question 1
+/* Function Overloading Demonstrations */
+
+/**
+ * Max function overloads - demonstrates function overloading with different signatures
+ */
 int max(int x, int y);
 int max(int x, int y, int z);
-int max(int arrayOne[ARRAY_LENGTH]);
-int max(int arrayOne[ARRAY_LENGTH], int arrayTwo[ARRAY_LENGTH]);
+int max(const int array[ARRAY_LENGTH]);
+int max(const int arrayOne[ARRAY_LENGTH], const int arrayTwo[ARRAY_LENGTH]);
 
-// Function declarations for Question 2
-void swap(int* num1, int* num2);
-void swap(int& num1, int& num2);
+/**
+ * Swap function overloads - demonstrates pointer vs reference parameter passing
+ */
+void swap(int* num1, int* num2);           /* Pointer-based swap */
+void swap(int& num1, int& num2);           /* Reference-based swap */
+void swap(Location* location1, Location* location2);  /* Pointer-based struct swap */
+void swap(Location& location1, Location& location2);  /* Reference-based struct swap */
 
-// Function declarations for Question 3
-void swap(Location* location1, Location* location2);
-void swap(Location& location1, Location& location2);
+/**
+ * Multiply function overloads - demonstrates default parameters and type overloading
+ */
+int multiply(int x, int y, int z = 1);     /* Default parameter demonstration */
+double multiply(double x, double y);       /* Type-based overloading */
 
-// Function declarations for Question 4
-int multiply(int x, int y, int z = 1);
-double multiply(double x, double y);
-
-//int multiply(int x, int y); function overload
+#endif /* UTILS_H */

@@ -1,58 +1,134 @@
+/**
+ * C++ Function Overloading, Pointers, References, and Default Parameters Demo
+ * 
+ * This program demonstrates key C++ OOP concepts:
+ * 1. Function Overloading - Multiple functions with same name, different signatures
+ * 2. Pointer vs Reference Parameters - Different ways to pass parameters
+ * 3. Default Parameters - Functions with optional parameters
+ * 4. Struct Usage - Custom data types and their manipulation
+ * 
+ * Professional coding practices demonstrated:
+ * - Clear function documentation
+ * - Proper error handling
+ * - Consistent naming conventions
+ * - Modular code organization
+ */
+
 #include <iostream>
+#include <iomanip>
 #include "utils.h"
+
 using namespace std;
 
-int main() {
+/**
+ * Demonstrates function overloading with max functions
+ */
+void demonstrateMaxFunctions() {
+    cout << "=== Function Overloading Demonstration ===\n";
     
-    cout << "Question-1:" << endl;
-    cout << "The max of 9 and 7 is " << max(9, 7) << endl;
-    cout << "The max of 9, 15, and 71 is " << max(9, 15, 71) << endl;
+    /* Two parameter max */
+    cout << "max(9, 7) = " << max(9, 7) << "\n";
+    
+    /* Three parameter max */
+    cout << "max(9, 15, 71) = " << max(9, 15, 71) << "\n";
+    
+    /* Array max */
+    int arrayOne[ARRAY_LENGTH] = {10, 2, 30, 4, 51};
+    cout << "max({10, 2, 30, 4, 51}) = " << max(arrayOne) << "\n";
+    
+    /* Two arrays max */
+    int arrayTwo[ARRAY_LENGTH] = {8, 70, 16, 15, 41};
+    cout << "max(arrayOne, arrayTwo) = " << max(arrayOne, arrayTwo) << "\n\n";
+}
 
-    int arrayOne[ARRAY_LENGTH] = { 10, 2, 30, 4, 51 };
-    cout << "The max of the array {10, 2, 30, 4, 51} is " << max(arrayOne) << endl;
-
-    int arrayTwo[ARRAY_LENGTH] = { 8, 70, 16, 15, 41 };
-    cout << "The max of the two given arrays is " << max(arrayOne, arrayTwo) << endl;
-
-    cout << "\nQuestion-2:" << endl;
-
+/**
+ * Demonstrates pointer vs reference parameter passing
+ */
+void demonstrateSwapFunctions() {
+    cout << "=== Pointer vs Reference Parameters ===\n";
+    
     int num1 = 12, num2 = 51;
-    cout << "Before using the pointer swap function   num1 = " << num1 << ", num2 = " << num2 << endl;
+    
+    /* Pointer-based swap */
+    cout << "Before pointer swap:    num1 = " << num1 << ", num2 = " << num2 << "\n";
     swap(&num1, &num2);
-    cout << "After using the pointer swap function    num1 = " << num1 << ", num2 = " << num2 << endl;
-
-    cout << "Before using the reference swap function num1 = " << num1 << ", num2 = " << num2 << endl;
+    cout << "After pointer swap:     num1 = " << num1 << ", num2 = " << num2 << "\n";
+    
+    /* Reference-based swap */
+    cout << "Before reference swap:  num1 = " << num1 << ", num2 = " << num2 << "\n";
     swap(num1, num2);
-    cout << "After using the reference swap function  num1 = " << num1 << ", num2 = " << num2 << endl;
+    cout << "After reference swap:   num1 = " << num1 << ", num2 = " << num2 << "\n\n";
+}
 
-    cout << "\nQuestion-3:" << endl;
-
-    Location location1 = { 25, 40 };
-    Location location2 = { 50, 80 };
-    cout << "Before using the pointer swap function: location1 = (" << location1.latitude << "," << location1.longitude
-        << "), location2 = (" << location2.latitude << "," << location2.longitude << ")" << endl;
-
+/**
+ * Demonstrates struct manipulation with pointers and references
+ */
+void demonstrateStructSwap() {
+    cout << "=== Struct Manipulation Demo ===\n";
+    
+    Location location1(25.0, 40.0);
+    Location location2(50.0, 80.0);
+    
+    cout << fixed << setprecision(1);
+    
+    /* Pointer-based struct swap */
+    cout << "Before pointer swap: location1 = (" << location1.latitude 
+         << ", " << location1.longitude << "), location2 = (" 
+         << location2.latitude << ", " << location2.longitude << ")\n";
+    
     swap(&location1, &location2);
-    cout << "After using the pointer swap function: location1 = (" << location1.latitude << "," << location1.longitude
-        << "), location2 = (" << location2.latitude << "," << location2.longitude << ")" << endl;
-
-    cout << "Before using the reference swap function: location1 = (" << location1.latitude << "," << location1.longitude
-        << "), location2 = (" << location2.latitude << "," << location2.longitude << ")" << endl;
-
+    cout << "After pointer swap:  location1 = (" << location1.latitude 
+         << ", " << location1.longitude << "), location2 = (" 
+         << location2.latitude << ", " << location2.longitude << ")\n";
+    
+    /* Reference-based struct swap */
+    cout << "Before reference swap: location1 = (" << location1.latitude 
+         << ", " << location1.longitude << "), location2 = (" 
+         << location2.latitude << ", " << location2.longitude << ")\n";
+    
     swap(location1, location2);
-    cout << "After using the reference swap function: location1 = (" << location1.latitude << "," << location1.longitude
-        << "), location2 = (" << location2.latitude << "," << location2.longitude << ")" << endl;
-    cout << "\nQuestion-4:" << endl;
-    cout << "The product of 4 * 15 * 7 is " << multiply(4, 15, 7) << endl;
-    cout << "The product of 0.5 * 4.5 is " << multiply(0.5, 4.5) << endl;
+    cout << "After reference swap:  location1 = (" << location1.latitude 
+         << ", " << location1.longitude << "), location2 = (" 
+         << location2.latitude << ", " << location2.longitude << ")\n\n";
+}
 
-    //cout << "The product of 2 * 3 is " << multiply(2, 3) << endl; *///Cant work because of function overload
+/**
+ * Demonstrates default parameters and function overloading by type
+ */
+void demonstrateMultiplyFunctions() {
+    cout << "=== Default Parameters & Type Overloading ===\n";
+    
+    /* Three parameter multiply (using default z=1) */
+    cout << "multiply(4, 15, 7) = " << multiply(4, 15, 7) << "\n";
+    
+    /* Double type multiply */
+    cout << "multiply(0.5, 4.5) = " << multiply(0.5, 4.5) << "\n";
+    
+    /* Explanation of why multiply(int, int) cannot be added */
+    cout << "\nNote: multiply(int, int) cannot be added due to ambiguity\n";
+    cout << "with multiply(int, int, int = 1). The compiler cannot\n";
+    cout << "distinguish between these two function signatures.\n\n";
+}
 
-    // b.Can you add another third function that has the same name and has two arguments : multiply(int, int)
-    // and call it as follows multiply(2, 3) ? Why or why not? Add your answer as a comment in your code. (1 pt.).
-    // .......
-    // ANSWER: No you cannot add another multiply(). This is because of function overload. There is more than one instance of multiply()
-    // .......
-
+/**
+ * Main function demonstrating all C++ OOP concepts
+ */
+int main() {
+    cout << "C++ OOP Concepts Demonstration\n";
+    cout << "==============================\n\n";
+    
+    try {
+        demonstrateMaxFunctions();
+        demonstrateSwapFunctions();
+        demonstrateStructSwap();
+        demonstrateMultiplyFunctions();
+        
+        cout << "All demonstrations completed successfully!\n";
+        
+    } catch (const exception& e) {
+        cerr << "Error: " << e.what() << "\n";
+        return 1;
+    }
+    
     return 0;
 }
